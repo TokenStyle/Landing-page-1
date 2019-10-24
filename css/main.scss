@@ -1,0 +1,377 @@
+$color-primary: #f1f1f1;
+$color-secondary: #333333;
+$color-additional: #f1f100;
+$font-size-primary: 18px;
+
+$article2-border-radius: 20px;
+
+@mixin shadowTop($color) {
+  box-shadow: 0 -50px 100px -100px $color;
+}
+
+@mixin buttonPreset() {
+  margin: 20px 0 0;
+  border: $color-primary solid 2px;
+  border-radius: 20px;
+  padding: 20px 40px;
+  background: transparent;
+  color: $color-primary;
+  font-size: $font-size-primary;
+  font-weight: bold;
+
+  &:hover {
+    background: $color-primary;
+    border-color: transparent;
+    color: $color-secondary;
+  }
+}
+// TODO make this ended
+@mixin overlappingEffect() {}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body,
+html {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+nav.navbar {
+  height: 140px;
+  padding: 10px;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+
+  a.navbar-brand {
+    display: flex;
+    flex: 1;
+    max-width: 50px;
+  }
+
+  a.navbar-brand img {
+    width: auto;
+    height: 60px;
+  }
+
+  .navbar-nav {
+    flex: 11;
+    flex-flow: row nowrap;
+  }
+
+  a.nav-link {
+    color: $color-primary !important;
+    background-color: $color-secondary !important;
+    font-size: $font-size-primary / 1.5 !important;
+    text-decoration: none;
+    margin: 0 10px !important;
+    padding: 10px 20px !important;
+    border: 2px solid $color-secondary;
+    border-radius: 20px;
+    font-weight: bold;
+    width: auto;
+    -webkit-transition: 0.2s all !important;
+    -o-transition: 0.2s all !important;
+    transition: 0.2s all !important;
+  }
+
+  a.nav-link.login-btn {
+    background-color: transparent !important;
+    color: $color-secondary !important;
+
+    &:hover {
+      color: $color-primary !important;
+      background: $color-secondary !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  nav.navbar {
+    padding: 20px;
+
+    a.nav-link {
+      font-size: $font-size-primary !important;
+    }
+
+    a.navbar-brand {
+      display: flex;
+      flex: 1;
+      max-width: none;
+    }
+
+    a.navbar-brand img {
+      width: auto;
+      height: 100px;
+    }
+  }
+}
+
+.article1 {
+  background: linear-gradient(#e07244 0%, #e83668, #643c8f 80%);
+  padding: 250px 20px;
+  overflow: hidden;
+
+  h1,
+  p {
+    color: $color-primary;
+  }
+
+  h1 {
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 0.9em;
+  }
+
+  .btn {
+    @include buttonPreset();
+  }
+
+  .image {
+    position: absolute;
+    top: -200px;
+    left: 20px;
+    width: auto;
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .article1 .image-outer {
+    display: none;
+  }
+}
+
+.article2 {
+  padding: 100px 0;
+  background: linear-gradient(#643c8f, #e07244), $color-secondary;
+  color: $color-primary;
+  @include shadowTop(#48214a);
+
+  .article2-content {
+    margin-top: 100px;
+  }
+
+  .info {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .info .name {
+    text-align: center;
+  }
+
+  .info img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: $article2-border-radius;
+    border-top-right-radius: $article2-border-radius;
+  }
+
+  .info .person-detail {
+    color: $color-secondary;
+    background: $color-primary;
+    padding: 20px 20px 40px;
+    font-size: $font-size-primary * .75;
+    border-bottom-left-radius: $article2-border-radius;
+    border-bottom-right-radius: $article2-border-radius;
+
+    .team-role {
+      font: 2em 'Montserrat', sans-serif;
+      text-align: center;
+      font-weight: light;
+    }
+
+    .desc {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+}
+
+@media only screen /* and (min-width: 700px) */ and (max-width: 699.98px) {
+  .article2 .info {
+    width: 100%;
+    margin-bottom: 40px;
+
+    .person-detail .team-role {
+      font-size: 2em;
+    }
+
+    .person-detail .desc {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1199.98px) {
+  .article2-wrapper {
+    flex-wrap: wrap !important;
+  }
+
+  .article2 .info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 40px;
+
+    .name {
+      text-align: center;
+      width: 100%;
+    }
+
+    img, .person-detail {
+      width: 50%;
+      border-radius: 0;
+    }
+
+    img {
+      border-top-left-radius: $article2-border-radius;
+      border-bottom-left-radius: $article2-border-radius;
+    }
+
+    .person-detail {
+      border-top-right-radius: $article2-border-radius;
+      border-bottom-right-radius: $article2-border-radius;
+    }
+
+    .person-detail .team-role {
+      font-weight: regular;
+      font-size: 2em;
+    }
+
+    .person-detail .desc {
+      font-size: 1.75em;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .article2-wrapper {
+    flex-wrap: nowrap !important;
+  }
+  .article2 .info {
+    max-width: none;
+  }
+}
+
+// @media only screen and (max-device-width: 960px) {
+//   .article2 .info {
+//     max-width: none;
+//   }
+// }
+
+.article3 {
+  padding: 100px 0;
+  background: linear-gradient(#e07244 10%, #b32d60 100%), $color-secondary;
+  color: $color-primary;
+  @include shadowTop(#b3362d);
+
+  .title {
+    text-shadow: 0 5px 0 #b32d60;
+    margin: 0;
+  }
+
+  .profile-card {
+    background: linear-gradient(#e07244 0%, #b32d60 110%), $color-secondary;
+    box-shadow: 0 100px 100px 0 #b32d60;
+    padding: 40px;
+    border-radius: 20px;
+  }
+
+  .followers {
+    margin: 30px 0;
+  }
+
+  .followers .info {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+    display: inline-block;
+    font-size: 1.5em;
+  }
+
+  .followers .info > * {
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  .btn {
+    margin-top: 60px !important;
+    @include buttonPreset();
+  }
+
+  .image {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .article3 .followers .info  {
+    width: auto;
+    text-align: left;
+    font-size: 1em;
+  }
+
+  .article3 .followers .info:nth-last-child(1n+1) {
+    margin: 0 30px 0 0;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+  .article3 .image {
+    display: block;
+    position: relative;
+    top: -50px;
+    right: -50px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.footer {
+  padding: 40px;
+  background: $color-secondary;
+  box-shadow: inset 0 200px 100px -200px #b32d60, inset 0 -150px 200px -200px #e07244;
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+
+  .contacts * {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+  }
+
+  .footer-menu {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    font-size: 1.5em;
+  }
+
+  .footer-menu * {
+    margin: 10px 10px;
+    color: $color-primary;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .footer .footer-menu {
+    font-size: 1em;
+  }
+
+  .footer .footer-menu * {
+    margin: 0 10px;
+  }
+}

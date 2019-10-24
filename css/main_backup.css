@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.hero {
+  background: linear-gradient(#4a5c63 50%, #93a299);
+  padding: 20px;
+}
+
+.top-button {
+  float: right;
+}
+
+.top-button > a {
+  color: #333333;
+  font-size: 14px;
+  text-decoration: none;
+
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+
+  border: 2px solid #f1f1f1;
+  border-radius: 20px;
+  font-weight: bold;
+
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
+  transition: .2s all;
+}
+
+a.login-btn {
+  background: transparent;
+  color: #f1f1f1;
+}
+
+a.login-btn:hover {
+  color: #333333;
+  background: #f1f1f1;
+}
+
+.article1 h1 {
+  color: #f1f1f1;
+
+}
